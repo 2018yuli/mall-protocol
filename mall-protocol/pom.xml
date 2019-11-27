@@ -59,6 +59,7 @@
 		</plugins>
 	</build>
 	
+	
 	<modules>
 		<module>mall-web</module>
 		<module>mall-common</module>
