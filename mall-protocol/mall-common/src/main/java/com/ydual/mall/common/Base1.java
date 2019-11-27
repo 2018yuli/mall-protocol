@@ -11,7 +11,7 @@ public class Base1 {
 	 * @return
 	 */
 	public String base1(String s) {
-		String msg = "nice! now in common!!!!";
+		String msg = "nice! now in common!!!!!";
 		System.out.println(msg);
 		return msg;
 	}
