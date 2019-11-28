@@ -14,7 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>mall-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<url>http://www.ydual.com</url>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -32,6 +32,24 @@
 		<dependency>
 			<groupId>com.ydual</groupId>
 			<artifactId>mall-goodsweb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.ydual</groupId>
+			<artifactId>mall-cart</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.ydual</groupId>
+			<artifactId>mall-order</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.ydual</groupId>
+			<artifactId>mall-stock</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
@@ -53,6 +71,18 @@
 						<overlay>
 							<groupId>com.ydual</groupId>
 							<artifactId>mall-goodsweb</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.ydual</groupId>
+							<artifactId>mall-cart</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.ydual</groupId>
+							<artifactId>mall-order</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.ydual</groupId>
+							<artifactId>mall-stock</artifactId>
 						</overlay>
 					</overlays>
 				</configuration>
