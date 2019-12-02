@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd"
 	default-lazy-init="true">
 
-	<!-- 开启controller注解支持 -->
+	<!-- 开启controller注解支持，只扫描Controller -->
 	<context:component-scan base-package="com.ydual.mall.customer"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
