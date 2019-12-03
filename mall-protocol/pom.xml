@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -24,7 +23,18 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- ehcache缓存 -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-ehcache -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-ehcache</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<!-- cglib的jar 动态代理 -->
 		<dependency>
 			<groupId>cglib</groupId>
@@ -82,21 +92,21 @@
 			<version>2.7.4</version>
 		</dependency>
 		<!--springmvc end -->
-		
+
 		<!-- dbpool的jar -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.8</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!--mybatis start -->
 		<dependency>
 			<groupId>c3p0</groupId>
@@ -161,7 +171,7 @@
 			<version>1.0.8</version>
 		</dependency>
 		<!--mybatis end -->
-		
+
 		<!--spring start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -282,7 +292,7 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.5</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -309,8 +319,7 @@
 						<contextPath>/</contextPath>
 					</webAppConfig>
 					<connectors>
-						<connector
-							implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
 							<port>9080</port>
 							<maxIdleTime>60000</maxIdleTime>
 						</connector>

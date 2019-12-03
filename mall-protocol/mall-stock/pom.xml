@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ydual</groupId>
@@ -16,6 +15,11 @@
 	<name>mall-stock Maven Webapp</name>
 	<url>http://www.ydual.com</url>
 	<dependencies>
+		<dependency>
+			<groupId>com.ydual</groupId>
+			<artifactId>mall-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>mall-stock</finalName>
@@ -32,8 +36,7 @@
 						<contextPath>/stock</contextPath>
 					</webAppConfig>
 					<connectors>
-						<connector
-							implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
 							<port>9080</port>
 							<maxIdleTime>60000</maxIdleTime>
 						</connector>
