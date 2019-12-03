@@ -339,5 +339,6 @@
 		<module>mall-cart</module>
 		<module>mall-order</module>
 		<module>mall-stock</module>
+		<module>mall-front</module>
 	</modules>
 </project>
