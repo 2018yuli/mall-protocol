@@ -20,14 +20,12 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.ydual.mall.customer.vo.CustomerModel" alias="CM"/>
-		<typeAlias type="com.ydual.mall.customer.vo.CustomerQueryModel" alias="CQM"/>
 	</typeAliases>
 
-	<plugins>
+	<!-- <plugins>
 		<plugin interceptor="com.ydual.mall.common.pageutil.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*Page.*"/>
 		</plugin>
-	</plugins>
+	</plugins> -->
 </configuration> 

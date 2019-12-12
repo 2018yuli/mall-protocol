@@ -13,7 +13,7 @@
 
 	<!-- 不扫描Controller -->
 	<context:component-scan
-		base-package="com.ydual.mall.order">
+		base-package="com.ydual.mall">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -32,7 +32,7 @@
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url"
-			value="jdbc:mysql://47.101.11.182:3306/mall?useUnicode=true&amp;characterEncoding=UTF-8" />
+			value="jdbc:mysql://47.101.11.182:3306/mall_db?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username">
 			<value>root</value>
 		</property>
@@ -51,7 +51,7 @@
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.ydual.mall.order" />
+		<property name="basePackage" value="com.ydual.mall" />
 		<property name="annotationClass"
 			value="org.springframework.stereotype.Repository" />
 	</bean>

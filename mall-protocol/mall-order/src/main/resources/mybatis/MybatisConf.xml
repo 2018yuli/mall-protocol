@@ -20,16 +20,12 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.ydual.mall.order.vo.OrderModel" alias="OM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderDetailModel" alias="ODM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderQueryModel" alias="OQM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderDetailQueryModel" alias="ODQM"/>
 	</typeAliases>
 
-	<plugins>
+	<!-- <plugins>
 		<plugin interceptor="com.ydual.mall.common.pageutil.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*Page.*"/>
 		</plugin>
-	</plugins>
+	</plugins> -->
 </configuration> 

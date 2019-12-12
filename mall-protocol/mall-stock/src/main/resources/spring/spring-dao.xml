@@ -18,11 +18,11 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!--<aop:aspectj-autoproxy proxy-target-class="true" />
 	<tx:annotation-driven
 		transaction-manager="transactionManager" proxy-target-class="true" />
 
-	<bean id="transactionManager"
+	 <bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -42,7 +42,7 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- 加载mybatis的全局配置文件 -->
+		加载mybatis的全局配置文件
 		<property name="configLocation"
 			value="classpath:mybatis/MybatisConf.xml" />
 
@@ -54,5 +54,5 @@
 		<property name="basePackage" value="com.ydual.mall.stock" />
 		<property name="annotationClass"
 			value="org.springframework.stereotype.Repository" />
-	</bean>
+	</bean> -->
 </beans>

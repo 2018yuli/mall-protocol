@@ -20,24 +20,12 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.ydual.mall.customer.vo.CustomerModel" alias="CM"/>
-		<typeAlias type="com.ydual.mall.customer.vo.CustomerQueryModel" alias="CQM"/>
-		<typeAlias type="com.ydual.mall.cart.vo.CartModel" alias="CartM"/>
-		<typeAlias type="com.ydual.mall.cart.vo.CartQueryModel" alias="CartQM"/>
-		<typeAlias type="com.ydual.mall.goodsmgr.vo.GoodsModel" alias="GM"/>
-		<typeAlias type="com.ydual.mall.goodsmgr.vo.GoodsQueryModel" alias="GQM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderModel" alias="OM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderDetailModel" alias="ODM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderQueryModel" alias="OQM"/>
-		<typeAlias type="com.ydual.mall.order.vo.OrderDetailQueryModel" alias="ODQM"/>
-		<typeAlias type="com.ydual.mall.stock.vo.StoreModel" alias="StoreM"/>
-		<typeAlias type="com.ydual.mall.stock.vo.StoreQueryModel" alias="StoreQM"/>
 	</typeAliases>
 
-	<plugins>
+	<!-- <plugins>
 		<plugin interceptor="com.ydual.mall.common.pageutil.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*Page.*"/>
 		</plugin>
-	</plugins>
+	</plugins> -->
 </configuration> 

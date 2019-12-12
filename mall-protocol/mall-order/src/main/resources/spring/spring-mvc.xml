@@ -27,12 +27,43 @@
 	<!--<mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>-->
 	<mvc:default-servlet-handler />
 
-	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
-	<bean id="defaultViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"	value="org.springframework.web.servlet.view.JstlView" />
-		<property name="contentType" value="text/html" />
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
+	<!-- 配置多个视图解析 -->
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<!--used thymeleaf -->
+				<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+					<property name="characterEncoding" value="UTF-8" />
+					<property name="templateEngine" ref="templateEngine" />
+					<property name="viewNames" value="thymeleaf/*" />
+					<property name="order" value="1" />
+				</bean>
+				<!-- used jsp -->
+				<bean
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/jsp/" />
+					<property name="suffix" value=".jsp" />
+					<property name="viewNames" value="*" />
+					<property name="order" value="2" />
+				</bean>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="templateResolver"
+		class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/templates/" />
+		<property name="suffix" value=".html" />
+		<!-- HTML is the default value, added here for the sake of clarity. -->
+		<property name="templateMode" value="HTML5" />
+		<property name="characterEncoding" value="UTF-8" />
+		<!--这个开发配置为false，避免改了模板还要重启服务器 -->
+		<property name="cacheable" value="false" />
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
 	</bean>
 </beans>

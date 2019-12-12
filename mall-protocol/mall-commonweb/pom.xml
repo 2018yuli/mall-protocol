@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ydual</groupId>
+    <artifactId>mall</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.ydual</groupId>
+  <artifactId>mall-commonweb</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>mall-commonweb</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <destDir>${project.build.outputDirectory}/META-INF/resources/webjars</destDir>
+  </properties>
+  
+  <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destDir}</targetPath>
+            </resource>
+        </resources>
+    </build>
+    
+    <!-- todo 搭建maven私服 -->
+    <distributionManagement>
+        <repository>
+            <id>thirdparty</id>
+            <url>http://47.101.11.182:8081/nexus/content/repositories/thirdparty</url>
+        </repository>
+    </distributionManagement>
+    
+</project>

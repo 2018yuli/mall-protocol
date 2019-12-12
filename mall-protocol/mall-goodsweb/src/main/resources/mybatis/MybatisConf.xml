@@ -20,14 +20,12 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.ydual.mall.goodsmgr.vo.GoodsModel" alias="GM"/>
-		<typeAlias type="com.ydual.mall.goodsmgr.vo.GoodsQueryModel" alias="GQM"/>
 	</typeAliases>
 
-	<plugins>
+	<!-- <plugins>
 		<plugin interceptor="com.ydual.mall.common.pageutil.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*Page.*"/>
 		</plugin>
-	</plugins>
+	</plugins> -->
 </configuration> 

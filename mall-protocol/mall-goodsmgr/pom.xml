@@ -22,5 +22,12 @@
 			<artifactId>mall-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ydual</groupId>
+			<artifactId>mall-stock</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+			<classifier>api</classifier>
+		</dependency>
 	</dependencies>
 </project>
