@@ -1,4 +1,7 @@
 package com.ydual.mall.admin.entity;
+
+import com.google.code.ssm.api.CacheKeyMethod;
+
 /**
  * 管理员
  * @author l8989
@@ -15,6 +18,7 @@ public class AdminUser {
 
     private Byte locked;
 
+    @CacheKeyMethod
     public Integer getAdminUserId() {
         return adminUserId;
     }

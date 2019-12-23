@@ -11,6 +11,26 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		">
 
+	<!-- <import resource="simplesm-context.xml" />
+	<aop:aspectj-autoproxy /> -->
+	<!-- memcached -->
+	<!-- <bean name="defaultMemcachedClient" class="com.google.code.ssm.CacheFactory">
+		<property name="cacheClientFactory">
+			<bean
+				class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl" />
+		</property>
+		<property name="addressProvider">
+			<bean class="com.google.code.ssm.config.DefaultAddressProvider">
+				<property name="address" value="47.101.11.182:2222" />
+			</bean>
+		</property>
+		<property name="configuration">
+			<bean class="com.google.code.ssm.providers.CacheConfiguration">
+				<property name="consistentHashing" value="true" />
+			</bean>
+		</property>
+	</bean> -->
+	
 	<!-- 不扫描Controller -->
 	<context:component-scan
 		base-package="com.ydual.mall.admin">
