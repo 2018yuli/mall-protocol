@@ -7,6 +7,7 @@ import java.util.Objects;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -23,6 +24,7 @@ import com.ydual.mall.common.utils.Result;
 import com.ydual.mall.common.utils.ResultGenerator;
 import com.ydual.mall.order.controller.vo.NewBeeMallOrderItemVO;
 import com.ydual.mall.order.entity.NewBeeMallOrder;
+import com.ydual.mall.order.jms.MessageSender;
 import com.ydual.mall.order.service.NewBeeMallOrderService;
 
 /**
@@ -37,11 +39,28 @@ public class NewBeeMallOrderController {
 
     @Resource
     private NewBeeMallOrderService newBeeMallOrderService;
+    
+    @Autowired
+    private MessageSender messager;
 
     @RequestMapping("/orders")
     public String ordersPage(HttpServletRequest request) {
         request.setAttribute("path", "orders");
         return "thymeleaf/admin/newbee_mall_order";
+    }
+    
+    /**
+     * 测试JMS
+     * @param orderNo
+     * @return
+     */
+    @RequestMapping("/testJms")
+    @ResponseBody
+    public Result testJms(@RequestParam String orderNo) {
+    	NewBeeMallOrder order = new NewBeeMallOrder();
+    	order.setOrderNo(orderNo);
+    	messager.sendOrder(order);
+    	return ResultGenerator.genSuccessResult();
     }
 
     /**

@@ -2,14 +2,20 @@ package com.ydual.mall.order.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * 订单
  * @author l8989
  *
  */
-public class NewBeeMallOrder {
-    private Long orderId;
+public class NewBeeMallOrder implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Long orderId;
 
     private String orderNo;
 
