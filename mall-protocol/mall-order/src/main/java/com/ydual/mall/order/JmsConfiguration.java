@@ -1,8 +1,5 @@
 package com.ydual.mall.order;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.jms.ConnectionFactory;
 import javax.jms.MessageListener;
 
@@ -10,8 +7,6 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.activemq.pool.PooledConnectionFactory;
-import org.apache.activemq.security.AuthenticationUser;
-import org.apache.activemq.security.SimpleAuthenticationPlugin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -32,23 +27,18 @@ import com.ydual.mall.order.jms.listener.AMQMessageListener;
 @ComponentScan("com.ydual.mall.order.jms")
 public class JmsConfiguration{
 	
-	
-//    @Bean(initMethod = "start", destroyMethod = "stop")
-//    public BrokerService brokerService(SimpleAuthenticationPlugin simpleAuthPlugin) throws Exception {
-//        BrokerService brokerService = new BrokerService();
-//        brokerService.setBrokerName("orderBroker");
-//        brokerService.setPersistent(false);
-//        //brokerService.setUseJmx(false);
-//        //brokerService.setUseShutdownHook(false);
-//        brokerService.addConnector("tcp://localhost:61616");
-//        //brokerService.setTransportConnectorURIs(new String[] {"tcp://localhost:61618"});
-//        // auth
-//        brokerService.setPlugins(new BrokerPlugin[] {simpleAuthPlugin});
-//        return brokerService;
-//    }
-	
+	/*
+	 * xmlns:amq="http://activemq.apache.org/schema/core"
+	 * <!-- 内置AMQ -->
+	 * <amq:broker id="activeMQBroker">
+	 * 	<amq:transportConnectors>
+	 * 		<amq:transportConnector uri="localhost:61616" />
+	 * 	</amq:transportConnectors>
+	 * </amq:broker>
+	 * 
+	 */
 	/**
-	 * 通过连接池创建Broker，不再需要BrokerService
+	 * 通过连接池创建Broker
 	 * @param connectionFactory
 	 * @return
 	 */
@@ -105,34 +95,4 @@ public class JmsConfiguration{
         return new AMQMessageListener();
     }
     
-    
-    @Bean(name = "admins")
-    public AuthenticationUser admins() {
-    	return new AuthenticationUser("orderAdmin", "tian", "admins,publisher,consumers");
-    }
-    @Bean(name="publishers")
-    public AuthenticationUser publishers() {
-    	return new AuthenticationUser("publisher", "password", "publisher,consumers");
-    }
-    @Bean(name="consumers")
-    public AuthenticationUser consumers() {
-    	return new AuthenticationUser("consumer", "password", "consumers");
-    }
-    @Bean(name="guests")
-    public AuthenticationUser guests() {
-    	return new AuthenticationUser("guest", "password", "guests");
-    }
-    
-    @Bean
-    public SimpleAuthenticationPlugin simpleAuthPlugin(AuthenticationUser admins, AuthenticationUser publishers, AuthenticationUser consumers, AuthenticationUser guests) {
-    	SimpleAuthenticationPlugin auth = new SimpleAuthenticationPlugin();
-    	List<AuthenticationUser> users = new ArrayList<AuthenticationUser>();
-    	users.add(admins);
-    	users.add(publishers);
-    	users.add(consumers);
-    	users.add(guests);
-    	auth.setUsers(users);
-    	return auth;
-    }
-	
 }

@@ -20,7 +20,7 @@ public class QueueSender {
 	public static void main(String[] args) throws InterruptedException {
 		
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-				"orderAdmin" , "tian", "tcp://47.101.11.182:61616");
+				"orderAdmin" , "tian", "tcp://localhost:61616");
 		
 		Connection connection = null;
 		Session session = null;
