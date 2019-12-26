@@ -73,6 +73,7 @@ public class JmsConfiguration{
         return new ActiveMQQueue("order-queue");
     }
     
+    @Bean
     public ActiveMQTopic topicDestination() {
     	return new ActiveMQTopic("order-topic");
     }
