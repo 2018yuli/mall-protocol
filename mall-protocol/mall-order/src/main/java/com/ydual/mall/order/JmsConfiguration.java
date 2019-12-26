@@ -15,8 +15,6 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.support.converter.SimpleMessageConverter;
 
-import com.ydual.mall.order.jms.listener.AMQMessageListener;
-
 /**
  * JMS 相关配置
  * @author l8989
@@ -92,7 +90,7 @@ public class JmsConfiguration{
 
     @Bean
     public MessageListener messageListener(){
-        return new AMQMessageListener();
+        return new com.ydual.mall.order.jms.listener.AMQMessageListener();
     }
     
 }
