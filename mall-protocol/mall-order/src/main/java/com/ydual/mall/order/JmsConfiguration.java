@@ -25,16 +25,6 @@ import org.springframework.jms.support.converter.SimpleMessageConverter;
 @ComponentScan("com.ydual.mall.order.jms")
 public class JmsConfiguration{
 	
-	/*
-	 * xmlns:amq="http://activemq.apache.org/schema/core"
-	 * <!-- 内置AMQ -->
-	 * <amq:broker id="activeMQBroker">
-	 * 	<amq:transportConnectors>
-	 * 		<amq:transportConnector uri="localhost:61616" />
-	 * 	</amq:transportConnectors>
-	 * </amq:broker>
-	 * 
-	 */
 	/**
 	 * 通过连接池创建Broker
 	 * @param connectionFactory
@@ -92,5 +82,32 @@ public class JmsConfiguration{
     public MessageListener messageListener(){
         return new com.ydual.mall.order.jms.listener.AMQMessageListener();
     }
+    
+    /*
+	 <beans xmlns="http://www.springframework.org/schema/beans" 
+	  	xmlns:amq="http://activemq.apache.org/schema/core" 
+	  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	  	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	  	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	  	http://activemq.apache.org/schema/core 
+	  	http://activemq.apache.org/schema/core/activemq-core.xsd">
+	
+		<amq:broker brokerName="localhost" dataDirectory="${activemq.base}/data">
+	  		<amq:transportConnectors>
+	   			<amq:transportConnector name="openwire" uri="tcp://localhost:61616" />
+	  		</amq:transportConnectors>
+	  		<amq:plugins>
+	   			<amq:simpleAuthenticationPlugin>
+	    			<amq:users>
+	     				<amq:authenticationUser username="admin" password="password" groups="admins,publishers,consumers"/>
+	     				<amq:authenticationUser username="publisher" password="password" groups="publishers,consumers"/>
+	 					<amq:authenticationUser username="consumer" password="password" groups="consumers"/>
+	     				<amq:authenticationUser username="guest" password="password" groups="guests"/>
+					</amq:users>
+	   			</amq:simpleAuthenticationPlugin>
+	  		</amq:plugins>
+	 	</amq:broker>
+	</beans>
+     */
     
 }
