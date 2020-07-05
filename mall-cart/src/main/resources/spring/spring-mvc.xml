@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	default-lazy-init="true">
+
+	<!-- 开启controller注解支持，只扫描Controller -->
+	<context:component-scan base-package="com.ydual.mall.cart"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 会自动注册了validator ConversionService -->
+	<mvc:annotation-driven />
+
+	<!-- 标签分类完成获取静态资源的责任 WEB-INF/static-->
+	<mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+	<!--<mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>-->
+	<mvc:default-servlet-handler />
+
+	<!-- 配置多个视图解析 -->
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<!--used thymeleaf -->
+				<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+					<property name="characterEncoding" value="UTF-8" />
+					<property name="templateEngine" ref="templateEngine" />
+					<property name="viewNames" value="thymeleaf/*" />
+					<property name="order" value="1" />
+				</bean>
+				<!-- used jsp -->
+				<bean
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/jsp/" />
+					<property name="suffix" value=".jsp" />
+					<property name="viewNames" value="*" />
+					<property name="order" value="2" />
+				</bean>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="templateResolver"
+		class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/templates/" />
+		<property name="suffix" value=".html" />
+		<!-- HTML is the default value, added here for the sake of clarity. -->
+		<property name="templateMode" value="HTML5" />
+		<property name="characterEncoding" value="UTF-8" />
+		<!--这个开发配置为false，避免改了模板还要重启服务器 -->
+		<property name="cacheable" value="false" />
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+</beans>
